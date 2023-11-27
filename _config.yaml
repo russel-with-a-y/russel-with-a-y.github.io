@@ -1,0 +1,9 @@
+# _config.yml for GitHub Pages
+
+# Site settings
+title: Cove Portfolios
+description: A showcase of individual's work and projects
+
+# Build settings
+exclude:
+  - README.md
