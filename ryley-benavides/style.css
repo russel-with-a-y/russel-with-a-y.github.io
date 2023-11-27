@@ -1,46 +1,63 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    padding: 50px;
+    padding: 20px;
     background-color: #f4f4f4;
+    margin: auto;
+    max-width: 800px; /* Max width for large screens */
+}
+
+h1, h2 {
+    margin: 10px 0;
 }
 
 .section {
     margin: 40px 0;
+    text-align: left;
 }
 
-/* Button Styling */
+.nav-buttons, .contact, .contacts {
+    margin-bottom: 30px;
+}
+
 .btn {
-    background-color: transparent; /* Clear background */
-    color: #007bff; /* Initial color */
+    background-color: transparent;
+    color: #007bff;
     padding: 10px 20px;
     margin: 10px;
-    border: 2px solid #007bff; /* Border color */
+    border: 2px solid #007bff;
     cursor: pointer;
     text-decoration: none;
     border-radius: 5px;
     font-size: 16px;
-    display: inline-block; /* Display buttons inline */
+    display: inline-block;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .btn:hover {
-    background-color: #007bff; /* Background on hover */
-    color: white; /* Text color on hover */
+    background-color: #007bff;
+    color: white;
 }
 
-/* Additional styling for navigation buttons */
-.nav-buttons {
-    margin-bottom: 30px; /* Increased spacing from the resume button */
-}
-
-/* Resume Button Specific Style */
 .resume-btn {
-    background-color: #007bff; /* Solid background for resume button */
-    color: white; /* White text for resume button */
+    background-color: #007bff;
+    color: white;
     border: none;
 }
 
 .resume-btn:hover {
     background-color: #0056b3;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        padding: 15px;
+        max-width: none;
+    }
+
+    .btn {
+        display: block; /* Stack buttons vertically on small screens */
+        width: 100%;
+        box-sizing: border-box; /* Ensures padding doesn't affect width */
+    }
 }
