@@ -20,6 +20,34 @@ h1, h2 {
     margin-bottom: 30px;
 }
 
+.contact-widget {
+    display: none;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    width: 300px;
+    z-index: 1000;
+    padding: 15px;
+}
+
+.contact-widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.close-btn {
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
 .btn {
     background-color: transparent;
     color: #007bff;
