@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
+    background-color: #f4f4f4;
+}
+
+.section {
+    margin: 40px 0;
+}
+
+/* Button Styling */
+.btn {
+    background-color: transparent; /* Clear background */
+    color: #007bff; /* Initial color */
+    padding: 10px 20px;
+    margin: 10px;
+    border: 2px solid #007bff; /* Border color */
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    display: inline-block; /* Display buttons inline */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    background-color: #007bff; /* Background on hover */
+    color: white; /* Text color on hover */
+}
+
+/* Additional styling for navigation buttons */
+.nav-buttons {
+    margin-bottom: 30px; /* Increased spacing from the resume button */
+}
+
+/* Resume Button Specific Style */
+.resume-btn {
+    background-color: #007bff; /* Solid background for resume button */
+    color: white; /* White text for resume button */
+    border: none;
+}
+
+.resume-btn:hover {
+    background-color: #0056b3;
+}
