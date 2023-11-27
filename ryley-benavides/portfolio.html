@@ -18,8 +18,8 @@
 
     <!-- Navigation Buttons -->
     <div class="nav-buttons">
-        <a href="projects/select.html" class="btn">My Projects</a>
-        <a href="about.html" class="btn">More About Me</a>
+        <a href="projects/select" class="btn">My Projects</a>
+        <a href="about" class="btn">More About Me</a>
     </div>
 
     <!-- Resume Button -->
@@ -28,16 +28,38 @@
     <!-- Contact Section -->
     <div class="section contact">
         <h2>Contact Me</h2>
-        <p>If you have any questions or would like to get in touch, please contact me at: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+        <form action="https://formspree.io/f/{your-form-id}" method="POST">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="_replyto" required><br>
+
+            <label for="message">Message (max 250 words):</label><br>
+            <textarea id="message" name="message" rows="4" maxlength="1500" required></textarea><br>
+
+            <input type="hidden" name="_subject" value="New submission from portfolio!">
+            <input type="submit" value="Send Message" class="btn">
+        </form>
     </div>
+
 
     <!-- Contacts Section -->
     <div class="section contacts">
         <h2>My Contacts</h2>
-        <p>LinkedIn: [Your LinkedIn Profile]</p>
-        <p>GitHub: [Your GitHub Profile]</p>
-        <!-- Add other social media or professional links as needed -->
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/ryley-benavides-software-engineer" target="_blank">Ryley Benavides - Software Engineer</a></p>
+        <p>GitHub: <a href="https://github.com/russel-with-a-y" target="_blank">russel-with-a-y</a></p>
+        <p>Email: <a href="mailto:ryleyb3@gmail.com">ryleyb3@gmail.com</a></p>
     </div>
 
+    <script>
+        document.getElementById('message').addEventListener('input', function () {
+            var wordCount = this.value.split(/\s+/).length;
+            if (wordCount > 250) {
+                this.value = this.value.split(/\s+/).slice(0, 250).join(" ");
+            }
+        });
+    </script>
+    
 </body>
 </html>
