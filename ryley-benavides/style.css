@@ -19,16 +19,14 @@ h1, h2 {
 .nav-buttons, .contact, .contacts {
     margin-bottom: 30px;
 }
-
 .contact-widget {
     display: none;
     position: fixed;
     right: 10px;
-    bottom: 10px;
+    top: 10px; /* Changed from bottom to top */
     background-color: white;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 5px;
-    width: 300px;
     z-index: 1000;
     padding: 15px;
 }
