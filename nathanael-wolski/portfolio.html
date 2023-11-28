@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="nStyle.css">
+    <title>Nathanael Wolski's Portfolio</title>
+</head>
+<body>
+
+    <h2>Nathanael Wolski</h2>
+    <h1>Welcome to My Portfolio</h1>
+
+    <!-- Quick Introduction -->
+    <div class="section intro">
+        <p>Hello</p>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+        <a href="projects/select" class="btn">My Projects</a>
+        <a href="about" class="btn">More About Me</a>
+    </div>
+
+    <!-- Resume Button -->
+    <a href="resume.pdf" target="_blank" class="btn resume-btn">View My Resume</a>
+
+    <!-- Contacts Section -->
+    <div class="section contacts">
+        <h2>My Contacts</h2>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/ryley-benavides-software-engineer" target="_blank">Ryley Benavides - Software Engineer</a></p>
+        <p>GitHub: <a href="https://github.com/russel-with-a-y" target="_blank">russel-with-a-y</a></p>
+        <p>Email: <a href="mailto:ryleyb3@gmail.com">ryleyb3@gmail.com</a></p>
+    </div>
+
+    <script>
+        document.getElementById('message').addEventListener('input', function () {
+            var wordCount = this.value.split(/\s+/).length;
+            if (wordCount > 250) {
+                this.value = this.value.split(/\s+/).slice(0, 250).join(" ");
+            }
+        });
+    </script>
+    <script>
+        // Function to open and close the contact widget
+        document.getElementById('contactWidgetButton').addEventListener('click', function() {
+            var widget = document.getElementById('contactWidget');
+            widget.style.display = widget.style.display === 'block' ? 'none' : 'block';
+        });
+    
+        // Function to close the widget
+        function closeContactWidget() {
+            document.getElementById('contactWidget').style.display = 'none';
+        }
+    </script>
+    
+</body>
+</html>
