@@ -17,9 +17,9 @@ h2 {
     font-size: 30px;
 }
 
-.section {
+.intro {
     margin: 40px 0;
-    text-align: left;
+    text-align: center;
 }
 
 .nav-buttons, .contact, .contacts {
