@@ -11,7 +11,6 @@
     <h2>Ryley Benavides</h2>
     <h1>Welcome to My Portfolio</h1>
 
-    <!-- Quick Introduction -->
     <div class="section intro">
         <p class="intro-paragraph">My name is Ryley and I am a passionate 
             software developer with expertise in many areas of computer
@@ -21,17 +20,14 @@
              for checking it out!</p>
     </div>
     
-    <!-- Navigation Buttons -->
     <div class="nav-buttons">
         <a href="projects/select" class="btn">My Projects</a>
         <a href="about" class="btn">More About Me</a>
         <a href="resume.pdf" class="btn">View My Resume</a>
     </div>
 
-    <!-- Contact Widget Trigger Button -->
     <button id="contactWidgetButton" class="btn">Contact Me</button>
 
-    <!-- Contact Widget -->
     <div id="contactWidget" class="contact-widget">
         <div class="contact-widget-header">
             <span>Contact Me</span>
@@ -40,19 +36,15 @@
         <form action="https://formspree.io/f/myyqqwzq" method="POST">
             <label for="name">Name:</label><br>
             <input type="text" id="name" name="name" required><br>
-
             <label for="email">Email:</label><br>
             <input type="email" id="email" name="_replyto" required><br>
-
             <label for="message">Message (max 250 words):</label><br>
             <textarea id="message" name="message" rows="4" maxlength="1500" required></textarea><br>
-
             <input type="hidden" name="_subject" value="New submission from portfolio!">
             <input type="submit" value="Send Message" class="btn">
         </form>
     </div>
 
-    <!-- Contacts Section -->
     <div class="section contacts">
         <h2>My Contacts</h2>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/ryley-benavides-software-engineer" target="_blank">Ryley Benavides - Software Engineer</a></p>
@@ -60,18 +52,15 @@
         <p>Email: <a href="mailto:ryleyb3@gmail.com">ryleyb3@gmail.com</a></p>
     </div>
 
-    <!-- Button to toggle the Tic Tac Toe game -->
     <button id="ticTacToeButton" class="btn">Play Tic Tac Toe</button>
 
-    <!-- Tic Tac Toe Game Widget -->
     <div id="ticTacToeWidget" class="tic-tac-toe-widget" style="display:none;">
-        <div id="gameBoard">
-            <!-- Game board will be populated by JavaScript -->
+        <div id="gameBoard" class="tic-tac-toe-grid">
+            <!-- Game board cells will be populated by JavaScript -->
         </div>
         <button onclick="resetGame()" class="btn">Reset Game</button>
     </div>
 
-    <!-- Link to the JavaScript file -->
     <script src="tictactoe.js"></script>
     
 </body>
