@@ -91,6 +91,30 @@ a:visited {
     color: white; /* White text for visited links */
 }
 
+.tic-tac-toe-widget {
+    background-color: white;
+    border: 2px solid #3f374a;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.tic-tac-toe-widget button {
+    margin-top: 10px;
+}
+
+.tic-tac-toe-cell {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #ddd;
+    display: inline-block;
+    font-size: 24px;
+    line-height: 60px;
+    text-align: center;
+    cursor: pointer;
+}
+
+
 @media screen and (max-width: 600px) {
     body {
         padding: 15px;
