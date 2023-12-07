@@ -32,17 +32,6 @@
 <!-- Contact Widget Trigger Button -->
 <button id="contactWidgetButton" class="btn">Contact Me</button>
 
-<!-- Button to open the Tic Tac Toe game -->
-<button id="ticTacToeButton" class="btn">Play Tic Tac Toe</button>
-
-<!-- Tic Tac Toe Game Widget -->
-<div id="ticTacToeWidget" class="tic-tac-toe-widget" style="display:none;">
-    <div id="gameBoard">
-        <!-- Game board will be populated by JavaScript -->
-    </div>
-    <button onclick="resetGame()" class="btn">Reset Game</button>
-</div>
-
 <!-- Contact Widget -->
 <div id="contactWidget" class="contact-widget">
     <div class="contact-widget-header">
@@ -72,6 +61,17 @@
         <p>GitHub: <a href="https://github.com/russel-with-a-y" target="_blank">russel-with-a-y</a></p>
         <p>Email: <a href="mailto:ryleyb3@gmail.com">ryleyb3@gmail.com</a></p>
     </div>
+
+    <!-- Button to open the Tic Tac Toe game -->
+<button id="ticTacToeButton" class="btn">Play Tic Tac Toe</button>
+
+<!-- Tic Tac Toe Game Widget -->
+<div id="ticTacToeWidget" class="tic-tac-toe-widget" style="display:none;">
+    <div id="gameBoard">
+        <!-- Game board will be populated by JavaScript -->
+    </div>
+    <button onclick="resetGame()" class="btn">Reset Game</button>
+</div>
 
     <script>
         document.getElementById('message').addEventListener('input', function () {
