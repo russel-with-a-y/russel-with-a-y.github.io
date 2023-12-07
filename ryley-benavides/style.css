@@ -65,12 +65,6 @@ h1, h2 {
     color: white;
 }
 
-.resume-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-}
-
 .resume-btn:hover {
     background-color: #0056b3;
 }
