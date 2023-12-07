@@ -8,6 +8,15 @@ body {
     max-width: 800px; /* Max width for large screens */
 }
 
+.intro-paragraph {
+    border: 2px solid white; /* White border */
+    border-radius: 15px; /* Curved edges */
+    padding: 10px; /* Space between text and border */
+    margin: 20px 0; /* Optional: Adjust space around the paragraph */
+    /* Optional: Add a background color if you need */
+}
+
+
 h1, h2 {
     margin: 10px 0;
     color: white; /* Ensure headers are white */
