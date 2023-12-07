@@ -49,7 +49,6 @@ h1, h2 {
     color: white; /* Ensure visibility */
 }
 
-
 .btn {
     background-color: transparent;
     color: white;
@@ -65,10 +64,13 @@ h1, h2 {
 }
 
 .btn:hover {
-    background-color: #3f374a; /* Dark purple for hover */
-    color: white;
+    background-color: white; /* White background on hover */
+    color: #3f374a; /* Dark purple text on hover */
 }
 
+a:visited {
+    color: white; /* White text for visited links */
+}
 
 @media screen and (max-width: 600px) {
     body {
