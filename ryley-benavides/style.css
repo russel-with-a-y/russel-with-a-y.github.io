@@ -77,6 +77,16 @@ h1, h2 {
     color: #3f374a; /* Dark purple text on hover */
 }
 
+a {
+    color: #5f557a; /* Lighter purple color for links */
+    text-decoration: none; /* Optional: Removes underline from links */
+}
+
+a:hover {
+    color: #3f374a; /* Optional: Dark purple on hover for contrast */
+    text-decoration: underline; /* Optional: Underline on hover for emphasis */
+}
+
 a:visited {
     color: white; /* White text for visited links */
 }
