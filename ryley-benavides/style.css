@@ -2,13 +2,15 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     padding: 20px;
-    background-color: #ffd591;
+    background-color: #3f374a; /* Dark purple background */
+    color: white; /* Make all text white for visibility */
     margin: auto;
     max-width: 800px; /* Max width for large screens */
 }
 
 h1, h2 {
     margin: 10px 0;
+    color: white; /* Ensure headers are white */
 }
 
 .section {
@@ -24,11 +26,12 @@ h1, h2 {
     position: fixed;
     right: 10px;
     top: 10px; /* Changed from bottom to top */
-    background-color: #dead5d;
+    background-color: #3f374a; /* Dark purple to match theme */
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 5px;
     z-index: 1000;
     padding: 15px;
+    color: white; /* Text inside the widget */
 }
 
 .contact-widget-header {
@@ -43,15 +46,16 @@ h1, h2 {
     background-color: transparent;
     border: none;
     cursor: pointer;
+    color: white; /* Ensure visibility */
 }
 
 
 .btn {
     background-color: transparent;
-    color: #dead5d;
+    color: white;
     padding: 10px 20px;
     margin: 10px;
-    border: 2px solid #dead5d;
+    border: 2px solid white; /* White border for visibility */
     cursor: pointer;
     text-decoration: none;
     border-radius: 5px;
@@ -61,13 +65,10 @@ h1, h2 {
 }
 
 .btn:hover {
-    background-color: #dead5d;
-    color: #ffd591;
+    background-color: #3f374a; /* Dark purple for hover */
+    color: white;
 }
 
-.resume-btn:hover {
-    background-color: #0056b3;
-}
 
 @media screen and (max-width: 600px) {
     body {
