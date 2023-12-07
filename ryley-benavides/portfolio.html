@@ -21,7 +21,6 @@
              for checking it out!</p>
     </div>
     
-
     <!-- Navigation Buttons -->
     <div class="nav-buttons">
         <a href="projects/select" class="btn">My Projects</a>
@@ -29,30 +28,29 @@
         <a href="resume.pdf" class="btn">View My Resume</a>
     </div>
 
-<!-- Contact Widget Trigger Button -->
-<button id="contactWidgetButton" class="btn">Contact Me</button>
+    <!-- Contact Widget Trigger Button -->
+    <button id="contactWidgetButton" class="btn">Contact Me</button>
 
-<!-- Contact Widget -->
-<div id="contactWidget" class="contact-widget">
-    <div class="contact-widget-header">
-        <span>Contact Me</span>
-        <button onclick="closeContactWidget()" class="btn close-btn">&times;</button>
+    <!-- Contact Widget -->
+    <div id="contactWidget" class="contact-widget">
+        <div class="contact-widget-header">
+            <span>Contact Me</span>
+            <button onclick="closeContactWidget()" class="btn close-btn">&times;</button>
+        </div>
+        <form action="https://formspree.io/f/myyqqwzq" method="POST">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="_replyto" required><br>
+
+            <label for="message">Message (max 250 words):</label><br>
+            <textarea id="message" name="message" rows="4" maxlength="1500" required></textarea><br>
+
+            <input type="hidden" name="_subject" value="New submission from portfolio!">
+            <input type="submit" value="Send Message" class="btn">
+        </form>
     </div>
-    <form action="https://formspree.io/f/myyqqwzq" method="POST">
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" required><br>
-
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="_replyto" required><br>
-
-        <label for="message">Message (max 250 words):</label><br>
-        <textarea id="message" name="message" rows="4" maxlength="1500" required></textarea><br>
-
-        <input type="hidden" name="_subject" value="New submission from portfolio!">
-        <input type="submit" value="Send Message" class="btn">
-    </form>
-</div>
-
 
     <!-- Contacts Section -->
     <div class="section contacts">
@@ -62,118 +60,19 @@
         <p>Email: <a href="mailto:ryleyb3@gmail.com">ryleyb3@gmail.com</a></p>
     </div>
 
-    <!-- Button to open the Tic Tac Toe game -->
-<button id="ticTacToeButton" class="btn">Play Tic Tac Toe</button>
+    <!-- Button to toggle the Tic Tac Toe game -->
+    <button id="ticTacToeButton" class="btn">Play Tic Tac Toe</button>
 
-<!-- Tic Tac Toe Game Widget -->
-<div id="ticTacToeWidget" class="tic-tac-toe-widget" style="display:none;">
-    <div id="gameBoard">
-        <!-- Game board will be populated by JavaScript -->
+    <!-- Tic Tac Toe Game Widget -->
+    <div id="ticTacToeWidget" class="tic-tac-toe-widget" style="display:none;">
+        <div id="gameBoard">
+            <!-- Game board will be populated by JavaScript -->
+        </div>
+        <button onclick="resetGame()" class="btn">Reset Game</button>
     </div>
-    <button onclick="resetGame()" class="btn">Reset Game</button>
-</div>
 
-    <script>
-        document.getElementById('message').addEventListener('input', function () {
-            var wordCount = this.value.split(/\s+/).length;
-            if (wordCount > 250) {
-                this.value = this.value.split(/\s+/).slice(0, 250).join(" ");
-            }
-        });
-    </script>
-    <script>
-        // Function to open and close the contact widget
-        document.getElementById('contactWidgetButton').addEventListener('click', function() {
-            var widget = document.getElementById('contactWidget');
-            widget.style.display = widget.style.display === 'block' ? 'none' : 'block';
-        });
-    
-        // Function to close the widget
-        function closeContactWidget() {
-            document.getElementById('contactWidget').style.display = 'none';
-        }
-    </script>
-<!-- JavaScript for Tic Tac Toe Game -->
-    <script>
-        document.getElementById('ticTacToeButton').addEventListener('click', function() {
-            document.getElementById('ticTacToeWidget').style.display = 'block';
-            startGame();
-        });
-
-        let currentPlayer = 'X';
-        let gameActive = true;
-        let gameState = ["", "", "", "", "", "", "", "", ""];
-
-        function handleCellClick(clickedCellEvent) {
-            const clickedCell = clickedCellEvent.target;
-            const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));
-
-            if (gameState[clickedCellIndex] !== "" || !gameActive) {
-                return;
-            }
-
-            gameState[clickedCellIndex] = currentPlayer;
-            clickedCell.innerHTML = currentPlayer;
-
-            checkForWinner();
-        }
-
-        function checkForWinner() {
-            const winningConditions = [
-                [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
-                [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
-                [0, 4, 8], [2, 4, 6]             // Diagonals
-            ];
-
-            let roundWon = false;
-            for (let i = 0; i <= 7; i++) {
-                const winCondition = winningConditions[i];
-                let a = gameState[winCondition[0]];
-                let b = gameState[winCondition[1]];
-                let c = gameState[winCondition[2]];
-                if (a === '' || b === '' || c === '') {
-                    continue;
-                }
-                if (a === b && b === c) {
-                    roundWon = true;
-                    break
-                }
-            }
-
-            if (roundWon) {
-                alert(`Player ${currentPlayer} has won!`);
-                gameActive = false;
-                return;
-            }
-
-            let roundDraw = !gameState.includes("");
-            if (roundDraw) {
-                alert("The game ended in a draw!");
-                gameActive = false;
-                return;
-            }
-
-            currentPlayer = currentPlayer === "X" ? "O" : "X";
-        }
-
-        function startGame() {
-            gameState = ["", "", "", "", "", "", "", "", ""];
-            gameActive = true;
-            currentPlayer = "X";
-            document.getElementById('gameBoard').innerHTML = '';
-            for (let i = 0; i < 9; i++) {
-                let cell = document.createElement('div');
-                cell.classList.add('tic-tac-toe-cell');
-                cell.setAttribute('data-cell-index', i);
-                cell.addEventListener('click', handleCellClick);
-                document.getElementById('gameBoard').appendChild(cell);
-            }
-        }
-
-        function resetGame() {
-            startGame();
-        }
-    </script>
+    <!-- Link to the JavaScript file -->
+    <script src="tictactoe.js"></script>
     
 </body>
 </html>
