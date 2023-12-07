@@ -19,6 +19,8 @@ function closeContactWidget() {
     document.getElementById('contactWidget').style.display = 'none';
 }
 
+let computerMoveTimeout; // This will hold the timeout ID
+
 // Add an event listener to the Tic Tac Toe button to toggle game display
 document.getElementById('ticTacToeButton').addEventListener('click', function() {
     var ticTacToeWidget = document.getElementById('ticTacToeWidget');
@@ -71,6 +73,13 @@ function computerMove() {
     let cell = document.querySelectorAll('.tic-tac-toe-cell')[computerMoveIndex];
     makeMove(cell, computerMoveIndex, 'O');
     checkForWinner();
+
+    computerMoveTimeout = setTimeout(() => {
+        let computerMoveIndex = availableSpots[Math.floor(Math.random() * availableSpots.length)];
+        let cell = document.querySelectorAll('.tic-tac-toe-cell')[computerMoveIndex];
+        makeMove(cell, computerMoveIndex, 'O');
+        checkForWinner();
+    }, 2000); // 2000 milliseconds delay
 }
 
 // Check the game state for a winner
@@ -132,5 +141,6 @@ function startGame() {
 
 // Function to reset the game
 function resetGame() {
+    clearTimeout(computerMoveTimeout); // Clear the timeout
     startGame();
 }
