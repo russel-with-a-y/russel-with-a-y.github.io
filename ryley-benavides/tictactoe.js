@@ -36,7 +36,8 @@ function handleCellClick(clickedCellEvent) {
 
     makeMove(clickedCell, clickedCellIndex, currentPlayer);
     if (!checkForWinner()) {
-        computerMove();
+        // Delay computer's move by 2 seconds
+        setTimeout(computerMove, 2000); // 2000 milliseconds delay
     }
 }
 
