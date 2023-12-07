@@ -118,6 +118,18 @@ a:visited {
     cursor: pointer;
 }
 
+/* Styles for the reset button in the Tic Tac Toe widget */
+.tic-tac-toe-widget .reset-btn {
+    background-color: #3f374a; /* Dark purple background */
+    color: white; /* White text */
+    border: 2px solid white; /* White border */
+}
+
+.tic-tac-toe-widget .reset-btn:hover {
+    background-color: white; /* White background on hover */
+    color: #3f374a; /* Dark purple text on hover */
+}
+
 @media screen and (max-width: 600px) {
     body {
         padding: 15px;
