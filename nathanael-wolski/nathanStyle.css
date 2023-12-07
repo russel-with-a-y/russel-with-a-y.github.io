@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #d0f4de;
+    margin: auto;
+    max-width: 800px; /* Max width for large screens */
+}
+
+h1 {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+h2 {
+    margin: 10px 0;
+    font-size: 30px;
+}
+
+.intro {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.nav-buttons, .contact, .contacts {
+    margin-bottom: 30px;
+}
+.contact-widget {
+    display: none;
+    position: fixed;
+    right: 10px;
+    top: 10px; /* Changed from bottom to top */
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    z-index: 1000;
+    padding: 15px;
+}
+
+.contact-widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.close-btn {
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
+.btn {
+    background-color: transparent;
+    color: #007bff;
+    padding: 10px 20px;
+    margin: 10px;
+    border: 2px solid #007bff;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    display: inline-block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.resume-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+}
+
+.resume-btn:hover {
+    background-color: #0056b3;
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        padding: 15px;
+        max-width: none;
+    }
+
+    .btn {
+        display: block; /* Stack buttons vertically on small screens */
+        width: 100%;
+        box-sizing: border-box; /* Ensures padding doesn't affect width */
+    }
+}
