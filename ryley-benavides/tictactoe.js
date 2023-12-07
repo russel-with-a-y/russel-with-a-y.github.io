@@ -40,16 +40,15 @@ function handleCellClick(clickedCellEvent) {
     const clickedCell = clickedCellEvent.target;
     const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));
 
-    if (gameState[clickedCellIndex] !== "" || !gameActive) {
-        // Prevent move if the cell is already taken or the game is not active
+    if (gameState[clickedCellIndex] !== "" || !gameActive || currentPlayer !== 'X') {
+        // Prevent move if the cell is already taken, the game is not active,
+        // or if it's not the player's turn
         return;
     }
 
-    // Make the player's move
     makeMove(clickedCell, clickedCellIndex, currentPlayer);
     if (!checkForWinner()) {
-        // Delay the computer's move by 2 seconds
-        setTimeout(computerMove, 2000); // 2000 milliseconds delay
+        setTimeout(computerMove, 2000); // 2000 milliseconds delay for computer's move
     }
 }
 
