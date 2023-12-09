@@ -79,6 +79,7 @@ function checkForWinner() {
     ];
 
     let roundWon = false;
+    let winner = null;
     for (let i = 0; i <= 7; i++) {
         const winCondition = winningConditions[i];
         let a = gameState[winCondition[0]];
@@ -89,12 +90,13 @@ function checkForWinner() {
         }
         if (a === b && b === c) {
             roundWon = true;
+            winner = a; // 'X' or 'O'
             break;
         }
     }
 
     if (roundWon) {
-        alert(`Player ${currentPlayer === 'O' ? 'O (Computer)' : 'X (You)'} has won!`);
+        alert(`Player ${winner === 'X' ? 'X (You)' : 'O (Computer)'} has won!`);
         gameActive = false;
         return true;
     }
@@ -128,4 +130,3 @@ function resetGame() {
     clearTimeout(computerMoveTimeout);
     startGame();
 }
-
