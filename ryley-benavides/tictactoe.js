@@ -21,51 +21,47 @@ function closeContactWidget() {
 
 let computerMoveTimeout; // This will hold the timeout ID
 
-// Add an event listener to the Tic Tac Toe button to toggle game display
 document.getElementById('ticTacToeButton').addEventListener('click', function() {
     var ticTacToeWidget = document.getElementById('ticTacToeWidget');
-    // Toggle the display of the Tic Tac Toe widget
     ticTacToeWidget.style.display = ticTacToeWidget.style.display === 'block' ? 'none' : 'block';
     if (ticTacToeWidget.style.display === 'block') {
-        // Start the game when the widget is displayed
         startGame();
     }
 });
 
-// Define initial game variables
-let currentPlayer = 'X'; // Player is always 'X'
+let currentPlayer = 'X';
 let gameActive = true;
 let gameState = ["", "", "", "", "", "", "", "", ""];
 
-// Handle cell clicks for player moves
 function handleCellClick(clickedCellEvent) {
     const clickedCell = clickedCellEvent.target;
     const clickedCellIndex = parseInt(clickedCell.getAttribute('data-cell-index'));
 
     if (gameState[clickedCellIndex] !== "" || !gameActive || currentPlayer !== 'X') {
-        // Prevent move if the cell is already taken, the game is not active,
-        // or if it's not the player's turn
         return;
     }
 
     makeMove(clickedCell, clickedCellIndex, currentPlayer);
     if (!checkForWinner()) {
-        setTimeout(computerMove, 2000); // 2000 milliseconds delay for computer's move
+        currentPlayer = 'O';
+        setTimeout(computerMove, 2000);
     }
 }
 
-// Make a move on the game board
 function makeMove(cell, index, player) {
     gameState[index] = player;
     cell.innerHTML = player;
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
 }
 
-// Function for the computer to make a move
 function computerMove() {
+    if (!gameActive || currentPlayer !== 'O') {
+        return;
+    }
+
     let availableSpots = gameState.map((cell, index) => cell === "" ? index : null).filter(val => val !== null);
 
     if (availableSpots.length === 0) {
-        // No available spots, exit the function
         return;
     }
 
@@ -73,21 +69,13 @@ function computerMove() {
     let cell = document.querySelectorAll('.tic-tac-toe-cell')[computerMoveIndex];
     makeMove(cell, computerMoveIndex, 'O');
     checkForWinner();
-
-    computerMoveTimeout = setTimeout(() => {
-        let computerMoveIndex = availableSpots[Math.floor(Math.random() * availableSpots.length)];
-        let cell = document.querySelectorAll('.tic-tac-toe-cell')[computerMoveIndex];
-        makeMove(cell, computerMoveIndex, 'O');
-        checkForWinner();
-    }, 2000); // 2000 milliseconds delay
 }
 
-// Check the game state for a winner
 function checkForWinner() {
     const winningConditions = [
-        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
-        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
-        [0, 4, 8], [2, 4, 6]             // Diagonals
+        [0, 1, 2], [3, 4, 5], [6, 7, 8],
+        [0, 3, 6], [1, 4, 7], [2, 5, 8],
+        [0, 4, 8], [2, 4, 6]
     ];
 
     let roundWon = false;
@@ -106,7 +94,7 @@ function checkForWinner() {
     }
 
     if (roundWon) {
-        alert(`Player ${currentPlayer === 'X' ? 'X (You)' : 'O (Computer)'} has won!`);
+        alert(`Player ${currentPlayer === 'O' ? 'O (Computer)' : 'X (You)'} has won!`);
         gameActive = false;
         return true;
     }
@@ -118,18 +106,15 @@ function checkForWinner() {
         return true;
     }
 
-    // Switch current player
-    currentPlayer = currentPlayer === "X" ? "O" : "X";
     return false;
 }
 
-// Function to start a new game
 function startGame() {
     gameState = ["", "", "", "", "", "", "", "", ""];
     gameActive = true;
     currentPlayer = "X";
     const gameBoard = document.getElementById('gameBoard');
-    gameBoard.innerHTML = ''; // Clear the game board
+    gameBoard.innerHTML = '';
     for (let i = 0; i < 9; i++) {
         let cell = document.createElement('div');
         cell.classList.add('tic-tac-toe-cell');
@@ -139,8 +124,8 @@ function startGame() {
     }
 }
 
-// Function to reset the game
 function resetGame() {
-    clearTimeout(computerMoveTimeout); // Clear the timeout
+    clearTimeout(computerMoveTimeout);
     startGame();
 }
+
