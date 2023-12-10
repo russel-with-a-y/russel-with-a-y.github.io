@@ -61,14 +61,52 @@ function computerMove() {
 
     let availableSpots = gameState.map((cell, index) => cell === "" ? index : null).filter(val => val !== null);
 
-    if (availableSpots.length === 0) {
-        return;
+    let bestMove = findBestMove(availableSpots);
+    if (bestMove !== null) {
+        let cell = document.querySelectorAll('.tic-tac-toe-cell')[bestMove];
+        makeMove(cell, bestMove, 'O');
+        checkForWinner();
+    }
+}
+
+function findBestMove(availableSpots) {
+    // Check for a move that wins the game for the computer
+    for (let index of availableSpots) {
+        let tempGameState = [...gameState];
+        tempGameState[index] = 'O';
+        if (isWinningMove(tempGameState, 'O')) {
+            return index;
+        }
     }
 
-    let computerMoveIndex = availableSpots[Math.floor(Math.random() * availableSpots.length)];
-    let cell = document.querySelectorAll('.tic-tac-toe-cell')[computerMoveIndex];
-    makeMove(cell, computerMoveIndex, 'O');
-    checkForWinner();
+    // Check for a move that blocks the player from winning
+    for (let index of availableSpots) {
+        let tempGameState = [...gameState];
+        tempGameState[index] = 'X';
+        if (isWinningMove(tempGameState, 'X')) {
+            return index;
+        }
+    }
+
+    // If no winning or blocking move found, return a random available spot
+    return availableSpots.length > 0 ? availableSpots[Math.floor(Math.random() * availableSpots.length)] : null;
+}
+
+function isWinningMove(tempGameState, player) {
+    const winningConditions = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8],
+        [0, 3, 6], [1, 4, 7], [2, 5, 8],
+        [0, 4, 8], [2, 4, 6]
+    ];
+
+    for (let condition of winningConditions) {
+        if (tempGameState[condition[0]] === player &&
+            tempGameState[condition[1]] === player &&
+            tempGameState[condition[2]] === player) {
+            return true;
+        }
+    }
+    return false;
 }
 
 function checkForWinner() {
@@ -90,7 +128,7 @@ function checkForWinner() {
         }
         if (a === b && b === c) {
             roundWon = true;
-            winner = a; // 'X' or 'O'
+            winner = a;
             break;
         }
     }
